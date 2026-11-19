@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 
-const TELEGRAM_URL = 'https://t.me/cashers_manager_1'; // Replace with your actual manager URL if needed
+const TELEGRAM_URL = 'https://letsmon.xyz/4i1jj4jxzqpp';
 const FIAT = ['USD', 'EUR', 'RUB', 'CNY', 'KZT'];
 const CRYPTO = ['USDT', 'BTC', 'ETH'];
 const SYMBOLS = { USD:'$', EUR:'€', RUB:'₽', CNY:'¥', KZT:'₸', USDT:'₮', BTC:'₿', ETH:'Ξ' };
@@ -16,6 +16,7 @@ const FAQS = [
 
 function Arrow({ diagonal=false }) { return <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d={diagonal ? 'M5 19 19 5M8 5h11v11' : 'M4 12h16m-7-7 7 7-7 7'} /></svg>; }
 function Swap() { return <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16l-4-4m4 4-4 4M20 17H4l4 4m-4-4 4-4"/></svg>; }
+function TelegramMark() { return <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.8 4.3c.27-1.15-.42-1.6-1.4-1.24L2.8 9.85c-1.2.47-1.18 1.14-.22 1.43l4.5 1.4 1.72 5.4c.21.6.11.83.75.83.49 0 .7-.22.98-.49l2.17-2.12 4.52 3.35c.84.47 1.44.22 1.65-.78L21.8 4.3ZM8.62 12.4l9.7-6.12c.49-.3.94-.14.57.2l-8.29 7.47-.32 3.37-1.66-4.92Z"/></svg>; }
 function Brand() { return <span className="brand-icon" aria-hidden="true"><i/><i/><i/></span>; }
 function CurrencyField({ caption, value, onAmountChange, code, onCodeChange, options, readOnly=false }) {
   return <div className="money-field">
@@ -73,7 +74,7 @@ export default function App() {
   const toCode=mode==='sell'?fiat:crypto;
   const telegramLink=useMemo(()=>{
     const text=[
-      'Здравствуйте! Хочу согласовать обмен в BURO PAY.',
+      'Здравствуйте! Хочу согласовать обмен в BitRush.',
       `Направление: ${mode==='sell'?'криптовалюта → наличные':'наличные → криптовалюта'}.`,
       `Отдаю: ${valid?amount:'—'} ${fromCode}.`,
       `Получаю (ориентировочно): ${valid?formatValue(result):'—'} ${toCode}.`,
@@ -85,14 +86,17 @@ export default function App() {
   const changeMode = () => {setMode(prev=>prev==='sell'?'buy':'sell');setAmount('1000');};
 
   return <div className="site">
-    <div className="utility-bar"><div className="shell utility-inner"><span><span className="utility-dot"/> Заявки на обмен — 24/7</span><span className="utility-right">Согласование условий напрямую с менеджером <span className="utility-divider">/</span> BURO PAY</span></div></div>
+    <div className="utility-bar"><div className="shell utility-inner"><span><span className="utility-dot"/> Заявки на обмен — 24/7</span><span className="utility-right">Согласование условий напрямую с менеджером <span className="utility-divider">/</span> BitRush</span></div></div>
     <header className="header shell">
-      <a href="#top" className="brand" aria-label="BURO PAY — главная"><Brand/><span>BURO<span className="brand-light">PAY</span><small>EXCHANGE SERVICE</small></span></a>
-      <nav className={mobileMenu?'nav nav-open':'nav'} aria-label="Основная навигация">
+      <div className="mobile-header-actions">
+        <button className="menu-toggle" aria-label="Открыть или закрыть меню" aria-expanded={mobileMenu} aria-controls="site-navigation" onClick={()=>setMobileMenu(!mobileMenu)}>{mobileMenu?'Закрыть':'Меню'} <span>{mobileMenu?'×':'+'}</span></button>
+        <a className="mobile-telegram" href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Перейти в Telegram"><TelegramMark/><span>Telegram</span></a>
+      </div>
+      <a href="#top" className="brand" aria-label="BitRush — главная"><Brand/><span>BIT<span className="brand-light">RUSH</span><small>EXCHANGE SERVICE</small></span></a>
+      <nav id="site-navigation" className={mobileMenu?'nav nav-open':'nav'} aria-label="Основная навигация">
         <a href="#exchange" onClick={()=>setMobileMenu(false)}>Обменять</a><a href="#approach" onClick={()=>setMobileMenu(false)}>Преимущества</a><a href="#steps" onClick={()=>setMobileMenu(false)}>Как это работает</a><a href="#questions" onClick={()=>setMobileMenu(false)}>Вопросы</a>
       </nav>
       <a className="header-contact" href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer">Связаться <Arrow diagonal/></a>
-      <button className="menu-toggle" aria-label="Открыть или закрыть меню" aria-expanded={mobileMenu} onClick={()=>setMobileMenu(!mobileMenu)}>{mobileMenu?'Закрыть':'Меню'} <span>{mobileMenu?'×':'+'}</span></button>
     </header>
 
     <main id="top">
@@ -106,7 +110,7 @@ export default function App() {
         <div className="shell">
           <div className="zone-heading"><div><span className="eyebrow">01 — РАСЧЁТ</span><h2>Начните с суммы.</h2></div><p>Выберите направление обмена — и получите ориентировочный расчёт за несколько секунд.</p></div>
           <div className="ticket">
-            <div className="ticket-head"><div className="ticket-code">BP / EXCHANGE <span>№ 001</span></div><div className="tabs" role="group" aria-label="Направление обмена"><button className={mode==='sell'?'active':''} aria-pressed={mode==='sell'} onClick={()=>setMode('sell')}>Продать криптовалюту</button><button className={mode==='buy'?'active':''} aria-pressed={mode==='buy'} onClick={()=>setMode('buy')}>Купить криптовалюту</button></div></div>
+            <div className="ticket-head"><div className="ticket-code">BR / EXCHANGE <span>№ 001</span></div><div className="tabs" role="group" aria-label="Направление обмена"><button className={mode==='sell'?'active':''} aria-pressed={mode==='sell'} onClick={()=>setMode('sell')}>Продать криптовалюту</button><button className={mode==='buy'?'active':''} aria-pressed={mode==='buy'} onClick={()=>setMode('buy')}>Купить криптовалюту</button></div></div>
             <div className="ticket-main">
               <CurrencyField caption="01 / Вы отдаёте" value={amount} onAmountChange={setAmount} code={fromCode} onCodeChange={mode==='sell'?setCrypto:setFiat} options={mode==='sell'?CRYPTO:FIAT} />
               <button type="button" className="swap-btn" onClick={changeMode} aria-label="Поменять направление обмена"><Swap/></button>
@@ -128,8 +132,8 @@ export default function App() {
 
       <section className="questions" id="questions"><div className="shell questions-inner"><div className="questions-title"><span className="eyebrow">04 — ОТВЕТЫ</span><h2>Частые<br/>вопросы<span className="orange-dot">.</span></h2><p>Не нашли ответ? Напишите менеджеру.</p><a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-link">Открыть Telegram <Arrow diagonal/></a></div><div className="faq-list">{FAQS.map((f,i)=><div className="faq" key={f.q}><button aria-expanded={expanded===i} onClick={()=>setExpanded(expanded===i?-1:i)}><span>{String(i+1).padStart(2,'0')}</span><strong>{f.q}</strong><b>{expanded===i?'−':'+'}</b></button>{expanded===i && <p>{f.a}</p>}</div>)}</div></div></section>
 
-      <section className="closing shell"><span className="eyebrow">БУДЕМ НА СВЯЗИ</span><div className="closing-main"><h2>Обмен начинается<br/>с разговора.</h2><a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="closing-circle" aria-label="Написать в Telegram"><Arrow diagonal/></a></div><div className="closing-line"><span>BURO PAY / PRIVATE EXCHANGE</span><span>Пишите — обсудим детали</span></div></section>
+      <section className="closing shell"><span className="eyebrow">БУДЕМ НА СВЯЗИ</span><div className="closing-main"><h2>Обмен начинается<br/>с разговора.</h2><a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="closing-circle" aria-label="Написать в Telegram"><Arrow diagonal/></a></div><div className="closing-line"><span>BitRush / PRIVATE EXCHANGE</span><span>Пишите — обсудим детали</span></div></section>
     </main>
-    <footer className="footer"><div className="shell footer-inside"><div className="footer-brand"><Brand/> BURO PAY</div><span>© {new Date().getFullYear()} BURO PAY</span><span>Информация не является публичной офертой</span><a href="#top">Наверх ↑</a></div></footer>
+    <footer className="footer"><div className="shell footer-inside"><div className="footer-brand"><Brand/> BitRush</div><span>© {new Date().getFullYear()} BitRush</span><span>Информация не является публичной офертой</span><a href="#top">Наверх ↑</a></div></footer>
   </div>;
 }

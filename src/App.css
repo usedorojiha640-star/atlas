@@ -3,3 +3,31 @@
 @media(max-width:1100px){.shell{padding-left:28px;padding-right:28px}.nav{gap:16px}.intro h1{letter-spacing:-4px}.ticket-main{grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr);gap:8px;padding:25px 18px}.money-field{padding:15px}.ticket-bottom{padding:0 18px 22px}.money-bottom input{font-size:29px}.ticket-head{padding:18px}.submit-btn{min-width:185px}.questions-inner{gap:7%}}
 @media(max-width:760px){.utility-right{display:none}.header{height:83px}.header-contact{display:none}.menu-toggle{display:flex;align-items:center;gap:10px;background:transparent;border:1px solid #adb4ad;padding:9px 12px;font-size:13px;font-weight:800}.menu-toggle span{font-size:20px}.nav{display:none;position:absolute;z-index:10;top:118px;left:0;right:0;background:#f4f2eb;padding:24px 28px 30px;flex-direction:column;align-items:start;gap:22px;border-bottom:1px solid #cfd2cb;box-shadow:0 16px 25px #0002}.nav-open{display:flex}.intro{padding-top:65px;padding-bottom:65px}.intro h1{font-size:clamp(42px,8vw,72px);letter-spacing:-2.8px;margin:28px 0}.intro-end p{font-size:15px;max-width:390px}.round-arrow{width:57px;height:57px}.exchange-zone{padding:72px 0 66px}.zone-heading{display:block}.zone-heading p{margin-top:20px}.ticket-head{align-items:start;flex-direction:column;gap:20px}.tabs{width:100%}.tabs button{flex:1;padding:14px 8px}.ticket-main{grid-template-columns:1fr;gap:12px}.money-bottom input{font-size:32px}.swap-btn{justify-self:center;transform:rotate(90deg);margin:-2px 0}.ticket-bottom{grid-template-columns:1fr 1fr}.submit-btn{grid-column:1/-1;min-height:62px}.manifesto{padding:85px 0}.manifesto-grid{grid-template-columns:1fr;gap:30px}.manifesto-head h2{margin-bottom:0}.manifesto-lead{font-size:22px}.steps{padding-top:80px;padding-bottom:80px}.steps-list{grid-template-columns:repeat(2,1fr)}.steps-list>div:nth-child(3){border-left:0;padding-left:0;border-top:1px solid #bfc5bd}.steps-list>div:nth-child(4){border-top:1px solid #bfc5bd}.steps-list b{margin-bottom:25px}.questions{padding:80px 0}.questions-inner{grid-template-columns:1fr}.questions-title{margin-bottom:45px}.closing{padding:80px 28px}.closing h2{font-size:clamp(41px,7vw,68px);letter-spacing:-3px}.closing-circle{width:77px;height:77px}.closing-circle svg{width:27px}.footer-inside{flex-wrap:wrap;padding-top:25px;padding-bottom:25px}}
 @media(max-width:480px){.shell{padding-left:20px;padding-right:20px}.brand{font-size:23px}.brand-icon{width:35px;height:35px}.header{height:75px}.nav{top:110px;padding-left:20px;padding-right:20px}.intro{padding-top:49px;padding-bottom:56px}.intro-kicker{font-size:9px;letter-spacing:1.35px}.intro-number{display:none}.intro h1{font-size:clamp(37px,10vw,49px);letter-spacing:-2.3px}.intro-end p{font-size:13px;line-height:1.7}.intro-end{align-items:center}.round-arrow{width:46px;height:46px}.round-arrow svg{width:20px}.zone-heading h2,.steps h2,.questions h2{letter-spacing:-1.7px}.exchange-zone{padding-top:55px}.ticket{box-shadow:6px 6px 0 #becbc0}.ticket-head{padding:17px}.ticket-code{font-size:11px}.tabs button{font-size:11px}.ticket-main{padding:14px}.money-top{font-size:11px}.money-side{font-size:10px}.money-bottom input{font-size:29px}.money-field{padding:15px}.currency-group{padding-left:9px;gap:5px}.currency-group select{font-size:14px;max-width:79px}.currency-symbol{font-size:19px}.ticket-bottom{grid-template-columns:1fr;padding:0 14px 17px;gap:18px}.submit-btn{grid-column:auto}.rate-line{padding:7px 0}.ticket-note{font-size:11px}.manifesto{padding:65px 0}.manifesto-head h2{font-size:39px;letter-spacing:-2px}.manifesto-lead{font-size:19px}.steps{padding-top:70px;padding-bottom:70px}.section-caption>span:last-child{display:none}.steps-list{grid-template-columns:1fr}.steps-list>div{padding:22px 0 28px!important;border-left:0!important;border-top:1px solid #bfc5bd}.steps-list>div:first-child{border-top:0}.steps-list b{font-size:39px;margin-bottom:12px}.steps-list h3{font-size:16px}.questions{padding:70px 0}.faq button{grid-template-columns:27px 1fr 16px;gap:9px}.faq button strong{font-size:14px}.faq>p{margin-left:36px}.closing{padding:70px 20px}.closing h2{font-size:clamp(34px,9vw,45px);letter-spacing:-2.7px}.closing-circle{width:60px;height:60px;margin-bottom:50px}.closing-circle svg{width:24px}.closing-line{font-size:9px}.footer-inside{justify-content:start;gap:15px 25px}}
+
+/* BitRush: mobile header controls — compact and reachable in top-left corner. */
+.mobile-header-actions{display:none}
+.mobile-telegram{display:none}
+@media (max-width:760px){
+  .header{position:relative}
+  .mobile-header-actions{display:flex;align-items:center;gap:8px;order:0}
+  .header>.brand{order:1;margin-left:auto}
+  .mobile-telegram{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:0 12px;background:#222a28;color:#fff;border:1px solid #222a28;font-size:12px;font-weight:800;white-space:nowrap;transition:background .2s,transform .2s}
+  .mobile-telegram:hover{background:#36433e;transform:translateY(-1px)}
+  .mobile-telegram svg{width:17px;height:17px;flex-shrink:0}
+  .menu-toggle{min-height:42px;white-space:nowrap}
+}
+@media (max-width:480px){
+  .header{gap:9px}
+  .mobile-header-actions{gap:6px}
+  .mobile-telegram{padding:0 9px;min-height:39px}
+  .mobile-telegram span{font-size:11px}
+  .menu-toggle{padding:7px 9px;min-height:39px;gap:5px;font-size:12px}
+  .header>.brand{font-size:20px;gap:7px}
+  .header>.brand .brand-icon{width:28px;height:28px}
+  .header>.brand small{letter-spacing:1.1px;font-size:7px;margin-top:5px}
+}
+@media (max-width:370px){
+  .mobile-telegram{padding:0 10px}
+  .mobile-telegram span{display:none}
+  .header>.brand{font-size:18px}
+}
